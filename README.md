@@ -1,4 +1,4 @@
-# 🌌 K 巨星距离估计器 (K-Giant Distance Predictor
+# 🌌 K 巨星距离估计器 (K-Giant Distance Predictor)
 
 基于 LAMOST 巡天数据与机器学习算法SVR(支持向量回归）的 K 型巨星距离预测工具。本项目利用恒星大气参数（logg,teff,feh)和测光数据（g_r)构建回归模型，实现对K巨星距离模数及物理距离的精准估计。
 
