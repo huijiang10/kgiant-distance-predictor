@@ -1,6 +1,6 @@
 # 🌌 K 巨星距离估计器 (K-Giant Distance Predictor)
 
-基于 LAMOST 巡天数据与机器学习算法SVR(支持向量回归）的 K 型巨星距离预测工具。本项目利用恒星大气参数（logg,teff,feh)和测光数据（g_r)构建回归模型，实现对K巨星距离模数及物理距离的精准估计。
+基于 LAMOST 巡天数据与机器学习算法SVR(支持向量回归）的 K 型巨星距离预测工具。本项目利用恒星大气参数（logg,teff，feh)和测光数据（g_r)构建回归模型，实现对K巨星距离模数及物理距离的精准估计。
 
 ---
 
@@ -69,7 +69,8 @@ python test.py
 
 ### 1. 赫罗图 (Hertzsprung-Russell Diagram)
 
-![赫罗图]<img width="2400" height="1800" alt="hr_diagram" src="https://github.com/user-attachments/assets/b4583381-40fa-4a00-a89a-7fcb94dcb26f" />
+![赫罗图]<img width="2400" height="1800" alt="hr_diagram" src="https://github.com/user-attachments/assets/c5924bcd-30e7-4ea4-afb7-8fec8e32ec6c" />
+
 
 
 **说明：**
@@ -77,7 +78,8 @@ python test.py
 
 ### 2. 距离模数分布 (Distribution of Distance Modulus)
 
-![距离模数分布]<img width="3000" height="1800" alt="distance_distribution" src="https://github.com/user-attachments/assets/54707428-c330-4003-b00d-bc7b2290676d" />
+![距离模数分布]<img width="3000" height="1800" alt="distance_distribution" src="https://github.com/user-attachments/assets/e34378db-2a87-4455-89eb-15738c01a750" />
+
 
 
 **说明：**
@@ -85,7 +87,8 @@ python test.py
 
 ### 3. 预测值与真实值对比 (Predicted vs. True)
 
-![预测值与真实值对比]<img width="1500" height="1500" alt="result" src="https://github.com/user-attachments/assets/37c949e7-7e00-450e-a5b9-97e6958cd5fe" />
+![预测值与真实值对比]<img width="1500" height="1500" alt="result" src="https://github.com/user-attachments/assets/74a0575d-5ddc-42f8-999c-3a1a49eba20a" />
+
 
 
 **说明：**
@@ -93,7 +96,8 @@ python test.py
 
 ### 4. 残差分析 (Residual Analysis)
 
-![残差分析]<img width="3000" height="1800" alt="residual_analysis" src="https://github.com/user-attachments/assets/5eddb972-aafb-43c4-a3cc-c4ca3a600677" />
+![残差分析]<img width="3000" height="1800" alt="residual_analysis" src="https://github.com/user-attachments/assets/3faa2e6a-dafa-449c-8902-68ac882ae6e1" />
+
 
 
 **说明：**
@@ -105,21 +109,23 @@ python test.py
 
 ### 5. 预测误差分布 (Distribution of Prediction Errors)
 
-![预测误差分布]<img width="2400" height="1800" alt="error_dist" src="https://github.com/user-attachments/assets/884188f8-9a29-45f8-89b0-32fa7a2f3adb" />
+![预测误差分布]<img width="2400" height="1800" alt="error_dist" src="https://github.com/user-attachments/assets/b59d5543-3408-4542-9b57-71ea99a960ee" />
+
 
 
 **说明：**
-此图是残差的直方图，展示了误差的集中趋势。误差分布近似于以 0 为中心的正态分布，平均误差（Mean Error）仅为 0.01，表明模型没有明显的系统性高估或低估。
+此图是残差的直方图，展示了误差的集中趋势。误差分布近似于以 0 为中心的正态分布，平均误差（Mean Error）仅为 0.02，表明模型没有明显的系统性高估或低估。
 
 ### 6. 模型学习曲线 (Learning Curve)
 
-![模型学习曲线]<img width="2400" height="1800" alt="learning_curve" src="https://github.com/user-attachments/assets/0a2bc6c4-281b-4ec4-9f1b-39a480c8c984" />
+![模型学习曲线]<img width="2400" height="1800" alt="learning_curve" src="https://github.com/user-attachments/assets/b606d37b-41d9-4975-98f0-333f4ae1c40e" />
+
 
 
 **说明：**
 此图展示了模型在不同训练集大小下的表现。
 - **训练集得分（红色）** 和 **交叉验证得分（绿色）** 随着训练样本的增加逐渐收敛。
-- 两条曲线之间仅差0.01，趋势稳定，表明模型在当前数据量下表现稳健，可以基本排除过拟合和欠拟合的情况，且增加更多训练数据有望进一步提升模型性能。
+- 两条曲线之间仅差约0.01，趋势稳定，表明模型在当前数据量下表现稳健，可以基本排除过拟合和欠拟合的情况，且增加更多训练数据有望进一步提升模型性能。
 
 ## 🛡️ 结果可靠性说明
 
@@ -127,19 +133,19 @@ python test.py
 
 - **物理约束严格**：我们在数据预处理阶段引入了严格的K巨星大气参数和测光数据的数值范围，用来筛选巨星样本，从源头上保证了作为“标准烛光”的有效性。
 
-- **误差控制良好**：最终模型的 RMSE 为 0.44 mag，R² 为 73.5％，误差分布呈正态且无偏，证明了 SVR 算法在处理此类非线性问题上的有效性。
+- **误差控制良好**：最终模型的 RMSE 为 0.4430mag，R² 为 73.67％，误差分布呈正态且无偏，证明了 SVR 算法在处理此类非线性问题上的有效性。
 
 - **可视化验证**：通过残差图和预测-真实值对比图，我们直观地验证了模型在不同亮度区间的稳定性。
 
 ## 📝 总结与展望
 
-本项目成功构建了一个基于 SVR 算法的 K 巨星距离估计模型。通过严格的数据清洗与物理筛选，模型在测试集上表现出了良好的鲁棒性与预测精度（RMSE ≈ 0.44 mag）。该工具能够有效辅助天文研究人员快速处理 LAMOST 巡天数据，为银河系三维结构的研究提供数据支持。
+本项目成功构建了一个基于 SVR 算法的 K 巨星距离估计模型。通过严格的数据清洗与物理筛选，模型在测试集上表现出了良好的鲁棒性与预测精度（RMSE ≈ 0.4430 mag）。该工具能够有效辅助天文研究人员快速处理 LAMOST 巡天数据，为银河系三维结构的研究提供数据支持。
 
 ---
 
 ### 版本信息
 
-- **版本号**: v1.0.0
+- **版本号**: v1.0.1
 - **最后更新**: 2026年5月28日
 - **作者**: [huijiang10]
 - **地点**: 山东·青岛
