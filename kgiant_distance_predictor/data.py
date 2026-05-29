@@ -15,7 +15,7 @@ def load_data(file_path):
 
 def clean_data(df):
     """
-    物理筛选: 剔除异常值和空值，基于 Xue et al. (2014) 的物理逻辑
+    物理筛选: 剔除异常值和空值
     """
     # 1. 剔除带有空值（NaN）的行
     df = df.dropna()
