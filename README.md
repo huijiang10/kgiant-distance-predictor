@@ -65,11 +65,12 @@ python test.py
 
 ## 📊 结果展示与分析
 
-以下是使用本工具对 3945 颗 K 巨星样本进行预测和分析得到的可视化结果。
+以下是使用本工具对 4627 颗 K 巨星样本进行预测和分析得到的可视化结果。
 
 ### 1. 赫罗图 (Hertzsprung-Russell Diagram)
 
-![赫罗图]<img width="2400" height="1800" alt="hr_diagram" src="https://github.com/user-attachments/assets/c5924bcd-30e7-4ea4-afb7-8fec8e32ec6c" />
+![赫罗图]<img width="2400" height="1800" alt="hr_diagram" src="https://github.com/user-attachments/assets/e661f090-759b-40e2-bb22-65759a3b9910" />
+
 
 
 
@@ -78,16 +79,18 @@ python test.py
 
 ### 2. 距离模数分布 (Distribution of Distance Modulus)
 
-![距离模数分布]<img width="3000" height="1800" alt="distance_distribution" src="https://github.com/user-attachments/assets/e34378db-2a87-4455-89eb-15738c01a750" />
+![距离模数分布]<img width="3000" height="1800" alt="distance_distribution" src="https://github.com/user-attachments/assets/df502d38-5d09-4d8e-aa35-82208f9999b3" />
+
 
 
 
 **说明：**
-此图展示了 3945 颗 K 巨星样本预测出的距离模数分布。样本的距离模数主要集中在 14 到 16 mag 之间，平均值为 15.07 mag。
+此图展示了 4627 颗 K 巨星样本预测出的距离模数分布。样本的距离模数主要集中在 14 到 16 mag 之间，平均值为 15.24 mag。
 
 ### 3. 预测值与真实值对比 (Predicted vs. True)
 
-![预测值与真实值对比]<img width="1500" height="1500" alt="result" src="https://github.com/user-attachments/assets/74a0575d-5ddc-42f8-999c-3a1a49eba20a" />
+![预测值与真实值对比]<img width="1500" height="1500" alt="result" src="https://github.com/user-attachments/assets/e0cc73ae-a33a-43e1-8cef-19491cfb61b5" />
+
 
 
 
@@ -96,36 +99,39 @@ python test.py
 
 ### 4. 残差分析 (Residual Analysis)
 
-![残差分析]<img width="3000" height="1800" alt="residual_analysis" src="https://github.com/user-attachments/assets/3faa2e6a-dafa-449c-8902-68ac882ae6e1" />
+![残差分析]<img width="3000" height="1800" alt="residual_analysis" src="https://github.com/user-attachments/assets/0be1c435-c468-4d78-8698-8261d0d07e30" />
+
 
 
 
 **说明：**
 此图展示了预测残差（真实值 - 预测值）的分布情况。
-- $R^2 = 0.7367$：模型解释了约 73.67% 的数据方差，拟合优度较高。
-- $\text{RMSE} = 0.4430$：预测的均方根误差约为 0.44 mag
+- $R^2 = 0.7706$：模型解释了约 73.67% 的数据方差，拟合优度较高。
+- $\text{RMSE} = 0.4558$：预测的均方根误差约为 0.45 mag
 - 残差基本围绕 0 值随机分布，集中分布在1sigma内，没有明显的系统性偏差。
 
 
 ### 5. 预测误差分布 (Distribution of Prediction Errors)
 
-![预测误差分布]<img width="2400" height="1800" alt="error_dist" src="https://github.com/user-attachments/assets/b59d5543-3408-4542-9b57-71ea99a960ee" />
+![预测误差分布]<img width="2400" height="1800" alt="error_dist" src="https://github.com/user-attachments/assets/7c85aedd-484f-4c48-abee-24492d4dfb19" />
+
 
 
 
 **说明：**
-此图是残差的直方图，展示了误差的集中趋势。误差分布近似于以 0 为中心的正态分布，平均误差（Mean Error）仅为 0.02，表明模型没有明显的系统性高估或低估。
+此图是残差的直方图，展示了误差的集中趋势。误差分布近似于以 0 为中心的正态分布，平均误差（Mean Error）仅为 0.03，表明模型没有明显的系统性高估或低估。
 
 ### 6. 模型学习曲线 (Learning Curve)
 
-![模型学习曲线]<img width="2400" height="1800" alt="learning_curve" src="https://github.com/user-attachments/assets/b606d37b-41d9-4975-98f0-333f4ae1c40e" />
+![模型学习曲线]<img width="2400" height="1800" alt="learning_curve" src="https://github.com/user-attachments/assets/1b71ad3c-53c7-4792-bc9d-2dbe236a0fdc" />
+
 
 
 
 **说明：**
 此图展示了模型在不同训练集大小下的表现。
 - **训练集得分（红色）** 和 **交叉验证得分（绿色）** 随着训练样本的增加逐渐收敛。
-- 两条曲线之间仅差约0.01，趋势稳定，表明模型在当前数据量下表现稳健，可以基本排除过拟合和欠拟合的情况，且增加更多训练数据有望进一步提升模型性能。
+- 两条曲线之间仅差不到0.01，趋势稳定，表明模型在当前数据量下表现稳健，可以基本排除过拟合和欠拟合的情况，且增加更多训练数据有望进一步提升模型性能。
 
 ## 🛡️ 结果可靠性说明
 
@@ -133,20 +139,20 @@ python test.py
 
 - **物理约束严格**：我们在数据预处理阶段引入了严格的K巨星大气参数和测光数据的数值范围，用来筛选巨星样本，从源头上保证了作为“标准烛光”的有效性。
 
-- **误差控制良好**：最终模型的 RMSE 为 0.4430mag，R² 为 73.67％，误差分布呈正态且无偏，证明了 SVR 算法在处理此类非线性问题上的有效性。
+- **误差控制良好**：最终模型的 RMSE 为 0.4558mag，R² 为 77.06％，误差分布呈正态且无偏，证明了 SVR 算法在处理此类非线性问题上的有效性。
 
 - **可视化验证**：通过残差图和预测-真实值对比图，我们直观地验证了模型在不同亮度区间的稳定性。
 
 ## 📝 总结与展望
 
-本项目成功构建了一个基于 SVR 算法的 K 巨星距离估计模型。通过严格的数据清洗与物理筛选，模型在测试集上表现出了良好的鲁棒性与预测精度（RMSE ≈ 0.4430 mag）。该工具能够有效辅助天文研究人员快速处理 LAMOST 巡天数据，为银河系三维结构的研究提供数据支持。
+本项目成功构建了一个基于 SVR 算法的 K 巨星距离估计模型。通过严格的数据清洗与物理筛选，模型在测试集上表现出了良好的鲁棒性与预测精度（RMSE ≈ 0.4558 mag）。该工具能够有效辅助天文研究人员快速处理 LAMOST 巡天数据，为银河系三维结构的研究提供数据支持。
 
 ---
 
 ### 版本信息
 
-- **版本号**: v1.0.1
-- **最后更新**: 2026年5月28日
+- **版本号**: v1.0.2
+- **最后更新**: 2026年5月29日
 - **作者**: [huijiang10]
 - **地点**: 山东·青岛
 
