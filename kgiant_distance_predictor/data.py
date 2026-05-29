@@ -32,8 +32,8 @@ def clean_data(df):
     df = df[(df['feh'] > -2.5) & (df['feh'] < 0.5)]
 
     # 5. 表面重力 logg 范围 
-    # 剔除矮星 (logg > 3.5) 和极端亮星 (logg < 2.0)
-    df = df[(df['logg'] > 1.0) & (df['logg'] < 3.5)]
+    # 剔除矮星 (logg > 3.5) 
+    df = df[df['logg'] < 3.5]
 
     # 6. 筛选 e_feh 极小的数据，减少噪声并降低计算量
     df = df[df['e_feh'] < 0.08]
